@@ -20,25 +20,35 @@ function calculate () {
   let volume = ((3 * Math.sqrt(3)) / 2) * (baseEdge ** 2) * height;
   let surfaceArea = 6 * baseEdge * height + 3 * Math.sqrt(3) * (baseEdge ** 2);
 
-  // Outputs Volume and Surface Area with IF statement to ensure that user entered a metric unit
-  if (height === 0 || baseEdge === 0) {
-    document.getElementById('zero-input').innerHTML = zeroInputMsg;
-    document.getElementById('volume').innerHTML = "";
-    document.getElementById('surface-area').innerHTML = "";
-    document.getElementById('invalid-unit').innerHTML = "";
-  } else if (units === "mm" || units === "cm" || units === "dm" || units === "m" || 
-      units === "dam" || units === "hm" || units === "km") {
-    document.getElementById('volume').innerHTML = 'Volume is: ' + volume.toFixed(2) + 
-      units + "³";
-    document.getElementById('surface-area').innerHTML = 'Surface Area is: ' + 
-      surfaceArea.toFixed(2) + units + "²";
-    document.getElementById('invalid-unit').innerHTML = "";
-    document.getElementById('zero-input').innerHTML = "";
+  if (baseEdge != "" && height != "" && units != "") {
+    // Outputs Volume and Surface Area with IF statement to ensure that user entered a metric unit
+    if (height === 0 || baseEdge === 0) {
+      document.getElementById('zero-input').innerHTML = zeroInputMsg;
+      document.getElementById('volume').innerHTML = "";
+      document.getElementById('surface-area').innerHTML = "";
+      document.getElementById('invalid-unit').innerHTML = "";
+      document.getElementById('empty-field').innerHTML = "";
+    } else if (units === "mm" || units === "cm" || units === "dm" || units === "m" || 
+        units === "dam" || units === "hm" || units === "km") {
+      document.getElementById('volume').innerHTML = 'Volume is: ' + volume.toFixed(2) + 
+        units + "³";
+      document.getElementById('surface-area').innerHTML = 'Surface Area is: ' + 
+        surfaceArea.toFixed(2) + units + "²";
+      document.getElementById('invalid-unit').innerHTML = "";
+      document.getElementById('zero-input').innerHTML = "";
+      document.getElementById('empty-field').innerHTML = "";
+    } else {
+      document.getElementById('invalid-unit').innerHTML = invalidUnitMsg;
+      document.getElementById('volume').innerHTML = "";
+      document.getElementById('surface-area').innerHTML = "";
+      document.getElementById('zero-input').innerHTML = "";
+      document.getElementById('empty-field').innerHTML = "";
+    }
   } else {
-    document.getElementById('invalid-unit').innerHTML = invalidUnitMsg;
+    document.getElementById('empty-field').innerHTML = "Please enter ALL fields!";
     document.getElementById('volume').innerHTML = "";
     document.getElementById('surface-area').innerHTML = "";
+    document.getElementById('invalid-unit').innerHTML = "";
     document.getElementById('zero-input').innerHTML = "";
   }
 }
-

@@ -63,8 +63,7 @@ h2 {
 }
 
 /* Color and text adjustments */
-
- p {
+p {
 	font-weight: bold;
   text-decoration: underline;
   background-color: rgb(111, 236, 236);
@@ -97,4 +96,5 @@ h2 {
   margin-right: 25%;
   text-align: center;
   font-weight: bold;
+  height: auto;
 }
