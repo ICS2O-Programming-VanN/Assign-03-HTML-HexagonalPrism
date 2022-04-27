@@ -20,7 +20,7 @@ function calculate () {
   let volume = ((3 * Math.sqrt(3)) / 2) * (baseEdge ** 2) * height;
   let surfaceArea = 6 * baseEdge * height + 3 * Math.sqrt(3) * (baseEdge ** 2);
 
-  if (baseEdge != "" && height != "" && units != "") {
+  if (baseEdge > 0 && height > 0 && units != "") {
     // Outputs Volume and Surface Area with IF statement to ensure that user entered a metric unit
     if (height === 0 || baseEdge === 0) {
       document.getElementById('zero-input').innerHTML = zeroInputMsg;
